@@ -1,3 +1,5 @@
+import math
+
 homer = (12,178,54,88,90)
 homer_nome = "Homer"
 
@@ -12,15 +14,11 @@ distancia_Euclidiana_2 = 0
 
 for posicao in range(0,5):
 
-	if (homer[posicao] - pessoa[posicao]) < 0:
-		distancia_Euclidiana_1 = distancia_Euclidiana_1 + ((homer[posicao] - pessoa[posicao]) * (-1))
-	else:
-		distancia_Euclidiana_1 = distancia_Euclidiana_1 + (homer[posicao] - pessoa[posicao])
+	distancia_Euclidiana_1 = distancia_Euclidiana_1 + ((homer[posicao] - pessoa[posicao])**2)
+	distancia_Euclidiana_2 = distancia_Euclidiana_2 + ((bart[posicao] - pessoa[posicao])**2)
 
-	if (bart[posicao] - pessoa[posicao]) < 0:
-		distancia_Euclidiana_2 = distancia_Euclidiana_2 + ((homer[posicao] - pessoa[posicao]) * (-1))
-	else:
-		distancia_Euclidiana_2 = distancia_Euclidiana_2 + (homer[posicao] - pessoa[posicao])
+distancia_Euclidiana_1 = math.sqrt(distancia_Euclidiana_1)
+distancia_Euclidiana_2 = math.sqrt(distancia_Euclidiana_2)
 
 if(distancia_Euclidiana_1 < distancia_Euclidiana_2):
 	print("Individuo + proximo do %s -> Distancia = %f" %(homer_nome, distancia_Euclidiana_1))
